@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ورشة متنقلة متكاملة | الرياض</title>
+    <!-- استدعاء خط كايرو من جوجل -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+    <!-- استدعاء أيقونات FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* إعدادات عامة */
+        :root {
+            --primary-dark: #0b192c;
+            --secondary-dark: #122540;
+            --gold: #d4af37;
+            --gold-hover: #b5952f;
+            --text-light: #ffffff;
+            --text-gray: #cccccc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background-color: var(--primary-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* شريط التنقل */
+        header {
+            background-color: var(--secondary-dark);
+            padding: 15px 0;
+            border-bottom: 2px solid var(--gold);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--gold);
+        }
+
+        .logo i {
+            font-size: 30px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        /* القسم الرئيسي (Hero) */
+        .hero {
+            padding: 80px 0;
+            background: linear-gradient(rgba(11, 25, 44, 0.9), rgba(11, 25, 44, 0.9)), url('https://images.unsplash.com/photo-1613214149922-f1809c99b69d?q=80&w=2070&auto=format&fit=crop') center/cover;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+
+        .hero h1 span {
+            color: var(--gold);
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: var(--text-gray);
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--gold);
+            color: var(--primary-dark);
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-weight: 800;
+            font-size: 18px;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--gold-hover);
+            transform: translateY(-3px);
+        }
+
+        .btn i {
+            margin-left: 8px;
+        }
+
+        /* قسم الخدمات */
+        .services {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 40px;
+            color: var(--gold);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .service-card {
+            background-color: var(--secondary-dark);
+            padding: 30px 20px;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid #1f3b60;
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-5px);
+        }
+
+        .service-card i {
+            font-size: 40px;
+            color: var(--gold);
+            margin-bottom: 15px;
+        }
+
+        .service-card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        /* قسم المميزات */
+        .features {
+            padding: 40px 0;
+            background-color: var(--secondary-dark);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+
+        .feature-item i {
+            font-size: 35px;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        .feature-item p {
+            font-weight: 600;
+        }
+
+        /* قسم التواصل */
+        .contact {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .contact-box {
+            background-color: var(--secondary-dark);
+            padding: 20px 40px;
+            border-radius: 10px;
+            border: 1px solid var(--gold);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .contact-box i {
+            color: var(--gold);
+            font-size: 24px;
+        }
+
+        .contact-box.whatsapp {
+            background-color: #25D366;
+            color: white;
+            border: none;
+        }
+
+        .contact-box.whatsapp i {
+            color: white;
+        }
+
+        /* تذييل الصفحة */
+        footer {
+            background-color: #050d17;
+            text-align: center;
+            padding: 20px 0;
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+
+        /* التجاوب مع الهواتف */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .hero h1 {
+                font-size: 32px;
+            }
+            .hero p {
+                font-size: 16px;
+            }
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+            .contact-box {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- شريط التنقل -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fa-solid fa-wrench"></i>
+                ورشة متنقلة
+            </div>
+            <nav class="nav-links">
+                <a href="#services">خدماتنا</a>
+                <a href="#contact">تواصل معنا</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- القسم الرئيسي -->
+    <section class="hero">
+        <div class="container">
+            <h1>ورشة <span>متنقلة</span> متكاملة</h1>
+            <p>نصل إليك أينما كنت - خدمة احترافية في الرياض</p>
+            <a href="tel:0538877813" class="btn"><i class="fa-solid fa-phone"></i> احجز الآن: 0538877813</a>
+        </div>
+    </section>
+
+    <!-- قسم الخدمات -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">خدماتنا المتكاملة</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fa-solid fa-car-battery"></i>
+                    <h3>بطارية وفحص كهرباء</h3>
+                </div>
+                <div class="service-card">
+                    <i class="fa-solid fa-engine"></i>
+                    <h3>صيانة المحرك</h3>
+                </div>
+                <div class="service-card">
+                    <i class="fa-solid fa-compact-disc"></i>
+                    <h3>فحص وفرامل المكابح</h3>
+                </div>
+                <div class="service-card">
+                    <i class="fa-solid fa-oil-can"></i>
+                    <h3>تغيير زيت وفلاتر</h3>
+                </div>
+                <div class="service-card">
+                    <i class="fa-solid fa-car-side"></i>
+                    <h3>إطارات وخدماتها</h3>
+                </div>
+                <div class="service-card">
+                    <i class="fa-solid fa-snowflake"></i>
+                    <h3>صيانة المكيف</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم المميزات -->
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i class="fa-solid fa-clock"></i>
+                    <p>سرعة في الوصول</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fa-solid fa-shield-check"></i>
+                    <p>جودة مضمونة</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fa-solid fa-user-tie"></i>
+                    <p>فنيون محترفون</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fa-solid fa-tools"></i>
+                    <p>أدوات ومعدات حديثة</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم التواصل -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">تواصل معنا الآن</h2>
+            <p style="margin-bottom: 20px; color: var(--text-gray);"><i class="fa-solid fa-location-dot" style="color: var(--gold);"></i> نغطي جميع أنحاء الرياض</p>
+            <div class="contact-info">
+                <a href="tel:0538877813" class="contact-box">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>اتصال: 0538877813</span>
+                </a>
+                <a href="https://wa.me/966538877813" target="_blank" class="contact-box whatsapp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <span>واتساب: 0538877813</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- تذييل الصفحة -->
+    <footer>
+        <div class="container">
+            <p>جميع الحقوق محفوظة &copy; ورشة متنقلة متكاملة - الرياض 2026</p>
+        </div>
+    </footer>
+
+</body>
+</html>
